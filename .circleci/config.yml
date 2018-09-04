@@ -5,7 +5,7 @@ defaults: &defaults
 
 version: 2
 jobs:
-  build:
+  compile:
     <<: *defaults
     steps:
       - checkout
@@ -19,3 +19,13 @@ jobs:
               docker login -u ${DOCKER_LOGIN} -p ${DOCKER_PASSWORD}
               bash ./build.sh              
             fi
+
+workflows:
+  version: 2
+  main:
+    jobs:
+      - compile:
+          context: docker-login
+          filters:
+            tags: # all tags
+              only: /.*/          
