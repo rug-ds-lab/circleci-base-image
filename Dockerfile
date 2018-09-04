@@ -29,4 +29,4 @@ RUN \
   ln -s /usr/local/sbt/bin/* /usr/local/bin/ && \
   sbt sbtVersion
 
-RUN touch /root/.ivy2/.credentials
+COPY .ivy2/.credentials /root/.ivy2/
