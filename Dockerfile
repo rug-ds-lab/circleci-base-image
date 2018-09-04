@@ -1,4 +1,5 @@
 # Pull base image
+# Based on https://github.com/spikerlabs/scala-sbt/blob/master/.circleci/config.yml
 FROM  openjdk:8-jre-alpine
 
 ARG SCALA_VERSION
